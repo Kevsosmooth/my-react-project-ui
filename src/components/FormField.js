@@ -23,15 +23,22 @@ function FormField(props) {
   };
   return (
     <div>
+      {error && <p>{error}</p>}
+
       <TextField
         value={field}
+        size="small"
         onChange={(e) => setTextField(e.target.value.trim())}
         id="outlined-basic"
         label="Options"
         variant="outlined"
       />
-      {error && <p>{error}</p>}
-      <Button onClick={addOption} variant="contained" color="primary">
+      <Button
+        onClick={addOption}
+        size="medium"
+        variant="contained"
+        color="primary"
+      >
         Add Option
       </Button>
     </div>

@@ -3,6 +3,7 @@ import FormField from "./components/FormField";
 import Header from "./components/Header";
 import Container from "@material-ui/core/Container";
 import Options from "./components/Options";
+import Action from "./components/Action";
 function App() {
   const [option, setOption] = useState([]);
 
@@ -21,6 +22,7 @@ function App() {
     <div>
       <Container maxWidth="md">
         <Header />
+        <Action option={option} />
         <Options handleDelete={handleDelete} option={option} />
         <FormField
           handleAddOption={handleAddOption}
