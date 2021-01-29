@@ -9,8 +9,13 @@ function App() {
   const handleDelete = () => {
     console.log("Works");
   };
-  const handleAddOption = () => {
-    console.log(option);
+  const handleAddOption = (options) => {
+    if (!options) {
+      return "Enter valid value to add item";
+    } else if (option.indexOf(options) > -1) {
+      return "Option already exsist";
+    }
+    setOption((prev) => [...prev, options]);
   };
   return (
     <div>

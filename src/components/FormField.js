@@ -11,11 +11,13 @@ function FormField(props) {
   //The above function is not working as expected
 
   const [field, setTextField] = useState("");
-
+  const [error, setError] = useState(undefined);
   const addOption = () => {
-    if (field) {
-      props.setOption((options) => [...options, field]);
-      console.log(field);
+    const fieldInput = field.trim();
+    const error = props.handleAddOption(fieldInput);
+    setError(error);
+
+    if (!error) {
       setTextField("");
     }
   };
@@ -28,6 +30,7 @@ function FormField(props) {
         label="Options"
         variant="outlined"
       />
+      {error && <p>{error}</p>}
       <Button onClick={addOption} variant="contained" color="primary">
         Add Option
       </Button>
