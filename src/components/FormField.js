@@ -11,20 +11,24 @@ function FormField(props) {
   //The above function is not working as expected
 
   const [field, setTextField] = useState("");
-  const handleClick = () => {
-    props.setOption((prevArray) => [...prevArray, field]);
-    setTextField("");
+
+  const addOption = () => {
+    if (field) {
+      props.setOption((options) => [...options, field]);
+      console.log(field);
+      setTextField("");
+    }
   };
   return (
     <div>
       <TextField
         value={field}
-        onChange={(e) => setTextField(e.target.value)}
+        onChange={(e) => setTextField(e.target.value.trim())}
         id="outlined-basic"
         label="Options"
         variant="outlined"
       />
-      <Button onClick={handleClick} variant="contained" color="primary">
+      <Button onClick={addOption} variant="contained" color="primary">
         Add Option
       </Button>
     </div>

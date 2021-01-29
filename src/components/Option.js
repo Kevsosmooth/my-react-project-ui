@@ -1,28 +1,14 @@
-import { Button } from "@material-ui/core";
-import React, { useState } from "react";
-
+import React from "react";
+import Button from "@material-ui/core/Button";
 function Option(props) {
-  const handleDelete = () => {
-    console.log("Works");
-  };
   return (
     <div>
-      {props.option &&
-        props.option.map((op) => {
-          return (
-            <div>
-              {op}
-              <Button
-                onClick={handleDelete}
-                variant="contained"
-                color="primary"
-              >
-                Remove
-              </Button>
-            </div>
-          );
-        })}
+      {props.option}
+      <Button size="small" variant="contained" color="primary">
+        Remove
+      </Button>
     </div>
   );
 }
+
 export default Option;
