@@ -28,7 +28,7 @@ function FormField(props) {
       <TextField
         value={field}
         size="small"
-        onChange={(e) => setTextField(e.target.value.trim())}
+        onChange={(eventTrigger) => setTextField(eventTrigger.target.value)}
         id="outlined-basic"
         label="Options"
         variant="outlined"

@@ -4,7 +4,14 @@ function Option(props) {
   return (
     <div>
       {props.option}
-      <Button size="small" variant="contained" color="primary">
+      <Button
+        onClick={(e) => {
+          props.handleDelete(props.option);
+        }}
+        size="small"
+        variant="contained"
+        color="primary"
+      >
         Remove
       </Button>
     </div>

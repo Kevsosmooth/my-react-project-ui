@@ -4,10 +4,10 @@ function App(props) {
   return (
     <div>
       <Button
-        disabled={!props.option.length > 0}
+        disabled={!props.option}
         size="large"
         variant="contained"
-        color="primary"
+        color="secondary"
       >
         What should I do?
       </Button>

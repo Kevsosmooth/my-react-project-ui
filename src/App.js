@@ -7,8 +7,8 @@ import Action from "./components/Action";
 function App() {
   const [option, setOption] = useState([]);
 
-  const handleDelete = () => {
-    console.log("Works");
+  const handleDelete = (optionToDelete) => {
+    setOption(option.filter((op) => op !== optionToDelete));
   };
   const handleAddOption = (options) => {
     if (!options) {
@@ -16,13 +16,14 @@ function App() {
     } else if (option.indexOf(options) > -1) {
       return "Option already exsist";
     }
+    options.trim();
     setOption((prev) => [...prev, options]);
   };
   return (
     <div>
       <Container maxWidth="md">
         <Header />
-        <Action option={option} />
+        <Action option={option.length > 0} />
         <Options handleDelete={handleDelete} option={option} />
         <FormField
           handleAddOption={handleAddOption}

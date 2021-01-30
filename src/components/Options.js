@@ -8,7 +8,7 @@ function Options(props) {
       </Button>
       {props.option.map((op) => {
         return (
-          <Option key={op} option={op} handleDelete={props.handleDelete} />
+          <Option handleDelete={props.handleDelete} key={op} option={op} />
         );
       })}
     </div>
